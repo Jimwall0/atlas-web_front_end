@@ -1,0 +1,1 @@
+This is the readme for sass. Through these projects I'll be learning sass.
