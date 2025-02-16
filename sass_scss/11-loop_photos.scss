@@ -5,8 +5,9 @@ You must use @import
 You must use @each statement
 */
 @import "11-photos";
+@use "11-photos" as photos;
 @each $name in $list-names {
     .photo-#{$name} {
-        background-image: url("photos/" + #{$name} + ".jpg");
+        background-image: url("photos/#{photos.%name}.jpg");
     }
 }
