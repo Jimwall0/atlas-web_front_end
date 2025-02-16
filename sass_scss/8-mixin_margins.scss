@@ -5,9 +5,17 @@ Margin left and right at 10px to body tags
 Margin left and right at 15px to div tags
 You must use a mixin
 */
-$bodyMargin: 10px;
-$divMargin: 15px;
+@mixin ten {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+@mixin five {
+    margin-left: 15px;
+    margin-right: 15px;
+}
 body {
-    margin-left: $bodyMargin;
-    margin-right: $bodyMargin;
+    @include ten;
+}
+div {
+    @include five;
 }
