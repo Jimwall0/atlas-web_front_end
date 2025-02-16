@@ -6,12 +6,4 @@ Text color $green from 10-colors.scss to the class .green
 Text color $blue from 10-colors.scss to the class .blue
 You must use @import
 */
-.red {
-    color: #ff0000;
-}
-.green {
-    color: #00ff00;
-}
-.blue {
-    color: #0000ff;
-}
+@import 10-colors;
