@@ -6,5 +6,7 @@ You must use @each statement
 */
 @import "11-photos";
 @each $name in $list-names {
-    background-image: url("photos/" + $name);
+    .photo-#{$name} {
+        background-image: url("photos/" + $name);
+    }
 }
