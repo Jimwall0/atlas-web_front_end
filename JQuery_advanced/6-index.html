@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 5</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            function createFamilyTree() {
+              $('body').append('<table></table>');
+              $('table').append('<thead></thead>');
+              $('thead').append('<tr></tr>');
+              $('tr').append('<th></th>', '<th></th>');
+              $('th').eq(0).text('Firstname');
+              $('th').eq(1).text('Lastname');
+              $('table').append('<tbody></tbody>');
+            }
+            function addNewMemeber(firstName, lastName, position) {
+              if (position === 'before') {
+                $('tbody').before('<tr></tr>');
+              } else {
+                $('tbody').append('<tr></tr>');
+              }
+              $('tbody tr').last().append('<td></td>', '<td></td>', '<td></td>');
+              $('tbody tr').last().children('td').eq(0).text(firstName);
+              $('tbody tr').last().children('td').eq(1).text(lastName);
+              $('tbody tr').last().children('td').eq(2).text('(x)').click(function() {
+                $(this).closest('tr').remove();
+              });
+              $('tbody tr').last().children('td').eq(2).css('background-color', 'orange');
+            }
+            function createForm() {
+              $('table').before('<input type="text"></input> <input type="text"></input>');
+            }
+            createFamilyTree();
+          });
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
