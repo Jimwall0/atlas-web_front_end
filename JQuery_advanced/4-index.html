@@ -25,6 +25,10 @@
               $('tbody tr').eq(1).children('td').eq(1).text('Salva');
             }
             createFamilyTree();
+            function replaceFamilyTree() {
+              $('tbody').html('<tr><td>Gerard</td><td>Bonissa</td></tr>');
+            }
+            replaceFamilyTree();
           });
         </script>
     </head>
