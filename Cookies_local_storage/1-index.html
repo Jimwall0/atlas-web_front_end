@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Web Page 2</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    function setCookies() {
+      const firstname = document.getElementById("firstName").value;
+      const email = documennt.getElementById("email").value;
+      const deadline = new Date();
+      deadline.setDate(expires.get() + 10);
+      const deadlineDate = `expires=${deadline.toUTCString}`;
+      document.cookie = `firstname=${(firstname)}; ${deadlineDate}; path=/`;
+      document.cookie = `email=${(email)}; ${deadlineDate}; path=/`;
+    }
+    function showCookies() {
+      const sentence = document.createElement("p");
+      const node = document.createTextNode(`Cookies: ${document.cookie}`);
+      sentence.append(node);
+      document.body.append(sentence);
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Login to the Website</h1>
+  </header>
+
+  <main>
+    <div>
+      <input id="firstName" type="text" name="firstname" placeholder="Firstname">
+      <input id="email" type="text" name="email" placeholder="Email">
+      <button type="button" onclick="setCookies()">Log me in</button>
+    </div>
+    <div>
+      <h1>Cookies</h1>
+      <button type="button" onclick="showCookies()">Show the cookies</button>
+    </div>
+  </main>
+</body>
+</html>
