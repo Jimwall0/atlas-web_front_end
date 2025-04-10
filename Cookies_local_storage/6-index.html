@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
+  <title>Shopping Cart 2</title>
 </head>
 <body>
   <script>
@@ -15,7 +15,7 @@
       displayCart();
     }
     function addItemToCart(item) {
-      localStorage.setItem(item, true);
+      sessionStorage.setItem(item, true);
       displayCart();
     }
     function createStore() {
@@ -35,13 +35,14 @@
       document.body.appendChild(ul);
     }
     function displayCart() {
-      if (document.getElementById('text')) {
-        document.getElementById('text').remove();
+      const message = document.getElementById('text');
+      if (message) {
+        message.remove();
       }
-      if (localStorage.length > 0) {
+      if (sessionStorage.length > 1) {
         const message = document.createElement('p');
         message.setAttribute('id', 'text');
-        const text = document.createTextNode(`You previously had ${localStorage.length} items in your cart`);
+        const text = document.createTextNode(`You previously had ${sessionStorage.length - 1} items in your cart`);
         message.appendChild(text);
         document.body.appendChild(message);
       }
