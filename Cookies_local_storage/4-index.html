@@ -3,44 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Web Page 4</title>
+  <title>My Web Page 5</title>
   <link rel="stylesheet" href="styles.css" />
   <script>
     function setCookies() {
       const firstname = document.getElementById("firstName").value;
       const email = document.getElementById("email").value;
-      const deadline = new Date();
-      deadline.setDate(deadline.getDate() + 10);
-      const deadlineDate = `expires=${deadline.toUTCString()}`;
-      document.cookie = `firstname=${(firstname)}; ${deadlineDate}; path=/`;
-      document.cookie = `email=${(email)}; ${deadlineDate}; path=/`;
+      Cookies.set('firstname', firstname, { expires: 10 });
+      Cookies.set('email', email, { expires: 10 });
       showWelcomeMessageOrForm();
     }
     function showCookies() {
       const sentence = document.createElement("p");
-      const node = document.createTextNode(`Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`);
+      const node = document.createTextNode(`Email: ${Cookies.get("email")} - Firstname: ${Cookies.get("firstname")}`);
       sentence.append(node);
       document.body.append(sentence);
     }
-    function getCookie(name) {
-      let cname = `${name}=`;
-      let decodedCookie = decodeURIComponent(document.cookie);
-      let ca = decodedCookie.split(';');
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(cname) == 0) {
-          return c.substring(cname.length, c.length);
-        }
-      }
-      return '';
-    }
     function showForm() {
       document.getElementById('welcome').style.display="none";
-      document.querySelector("header").style.display="block";
       document.getElementById('flogin').style.display="block";
+      document.querySelector("header").style.display="block";
     }
     function hideForm() {
       document.getElementById('flogin').style.display="none";
@@ -48,21 +30,18 @@
       document.getElementById('welcome').style.display='block';
     }
     function deleteCookiesAndShowForm() {
-      const deadline = new Date();
-      deadline.setDate(deadline.getDate() - 1);
-      const expire = `expires=${deadline.toUTCString()}`;
-      document.cookie = `firstname=${(getCookie("firstname"))}; ${expire}; path=/`;
-      document.cookie = `email=${(getCookie("email"))}; ${expire}; path=/`;
-      showWelcomeMessageOrForm();
+      Cookies.remove('firstname');
+      Cookies.remove('email');
+      showForm();
     }
     function showWelcomeMessageOrForm() {
-      if (getCookie("firstname") === '') {
+      if (Cookies.get("firstname") === '' || Cookies.get('firstname') === undefined) {
         showForm();
       } else {
         hideForm();
         const h1Element = document.createElement('h1');
         h1Element.id = 'welcomeMessage';
-        h1Element.innerHTML = `welcome ${getCookie("firstname")} <span id="logoutLink">(logout)</span>`;
+        h1Element.innerHTML = `welcome ${Cookies.get("firstname")} <span id="logoutLink">(logout)</span>`;
         document.getElementById("welcome").appendChild(h1Element);
         document.getElementById("logoutLink").addEventListener("click", function () {
           deleteCookiesAndShowForm();
@@ -73,6 +52,7 @@
 
     window.onload = showWelcomeMessageOrForm;
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 <body>
 
