@@ -1,1 +1,0 @@
-This is the read for flexbox. In these projects I'll be learning flexbox.
