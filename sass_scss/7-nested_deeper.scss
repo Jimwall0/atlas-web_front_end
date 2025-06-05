@@ -1,0 +1,13 @@
+/* font size */
+$bodys: 14px;
+$h1s: 16px;
+$h1ss: 12px;
+body{
+    font-size: $bodys;
+    h1 {
+        font-size: $h1s;
+        &.smaller {
+            font-size: $h1ss;
+        }
+    }
+}
