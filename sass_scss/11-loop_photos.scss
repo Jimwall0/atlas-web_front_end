@@ -2,7 +2,6 @@
 @use "11-photos" as photos;
 @each $name in photos.$list-names {
     .photo-#{$name} {
-        background-image: url("photos/#{$name}.jpg");
-        background-repeat: no-repeat;
+        background: url("photos/#{$name}.jpg") no-repeat;
     }
 }
