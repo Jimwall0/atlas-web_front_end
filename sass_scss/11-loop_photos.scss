@@ -1,5 +1,5 @@
 /* loops photoes */
-@use "11-photos" as *;
+@use '/11-photos';
 @each $name in $list-names {
     .photo-#{$name} {
         background: url("photos/#{$name}.jpg") no-repeat;
