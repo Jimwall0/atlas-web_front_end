@@ -743,7 +743,7 @@ textarea:focus {
 /* Form help
 ============================= */
 
-.form-help {
+.form-group .form-help {
     margin: 0;
     line-height: 1.3;
     letter-spacing: .019rem;
@@ -754,7 +754,7 @@ textarea:focus {
     overflow: hidden;
 }
 
-.form-help:focus-within {
+.form-group:focus-within .form-help {
     max-height: 20rem;
     margin: .4rem 0 0;
 }
