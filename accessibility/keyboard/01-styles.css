@@ -681,7 +681,7 @@ ul.row {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.card-work .card-title a::focus {
+.card-work .card-title a:focus {
     opacity: 1;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -697,11 +697,6 @@ ul.row {
 }
 
 @media only screen and (max-width: 767px) {
-
-  .card-work .card-inner {
-    --text-color: var(--color-white);
-    position: relative;
-  }
 
   .card-work .card-title {
     opacity: 1;
